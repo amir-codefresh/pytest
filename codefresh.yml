@@ -1,0 +1,12 @@
+version: '1.0'
+steps:
+  BuildingDockerImage:
+    image: python
+    commands:
+      - pip install allure-pytest
+      - pip install --upgrade --pre tox
+      - pytest --alluredir=/results
+      when:
+      branch:
+        only:
+          - master
